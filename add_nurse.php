@@ -38,7 +38,7 @@ while ($row = $result->fetch_assoc()) {
 
 <!-- HTML form -->
 
-<form action="addrecords/add_nurse.php" method="post">
+<form action="add_nurse.php" method="post">
     <input type="text" name="fname" placeholder="First Name" required>
     <input type="text" name="lname" placeholder="Last Name" required>
     <input type="text" name="licnum" placeholder="License Number" required>
