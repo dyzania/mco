@@ -40,6 +40,10 @@ while ($row = $result->fetch_assoc()) {
 <form action="add_doctor.php" method="post">
     <style>
         /* General Styles */
+        html { 
+            background: url(assets/img.jpg) no-repeat center fixed; 
+            background-size: cover;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;

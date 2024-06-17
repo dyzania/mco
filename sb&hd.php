@@ -1,14 +1,32 @@
-<!-- HTML -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>Dashboard</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <style> 
+html { 
+  background: url(assets/img.jpg) no-repeat center fixed; 
+  background-size: cover;
+}
+
+body { 
+  color: white; 
+}
+</style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
+<nav class="topnav">
+        <div class="logo"><img src="assets/logo.png"
+        style="width: 150px; height: 150px";></div>
+        <input type="text" class="search-bar" placeholder="Search...">
+                <div class="profile">
+                <span><?php echo $_SESSION['username']?></span>
+                    </div>
+                </nav>
         <div class="sidebar">
             <h2>Dashboard</h2>
             <ul>
@@ -23,6 +41,8 @@
             <a class="dropdown-item" href="doctors.php">Doctors</a>
 
 </li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="login.php">Logout</a></li>
             </ul>
         </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'config.php';
-
+include 'return.php';
 // Check if user is logged in
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
@@ -50,6 +50,7 @@ $result = $stmt->get_result();
             margin-top: 20px;
         }
         table, th, td {
+            margin-top: 60px;
             border: 1px solid #ddd;
         }
         th, td {
@@ -73,24 +74,6 @@ $result = $stmt->get_result();
         .actions a:hover {
             text-decoration: underline;
         }
-        .btn {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 12px;
-        }
-        .btn-return {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
         .link-container {
             margin-top: 20px;
         }
@@ -105,10 +88,7 @@ $result = $stmt->get_result();
     </style>
 </head>
 <body>
-    <form action="dashboard.php" method="post">
-        <button type="submit" class="btn btn-return">Return</button>
-    </form>
-
+    
     <table>
         <tr>
             <th>ID</th>
@@ -145,23 +125,6 @@ $result = $stmt->get_result();
         <a href='cancelled_appointments.php'>Cancelled</a>
         <a href='pending_appointments.php'>Pending</a>
     </div>
-    <form action="sb&hd.php" method="post">
-        <button type="submit" style="
-            background-color: #00695c; 
-            border: none;              
-            color: white;              
-            padding: 15px 32px;        
-            text-align: center;        
-            text-decoration: none;    
-            display: inline-block;     
-            font-size: 16px;           
-            margin: 4px 2px;           
-            cursor: pointer;           
-            border-radius: 12px;       
-            position: absolute;        
-            left: 186vh;               
-        ">Return</button>
-    </form>
     <?php
     // Close connection
     $conn->close();
