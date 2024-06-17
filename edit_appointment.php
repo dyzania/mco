@@ -16,7 +16,6 @@ echo "<select id='status' name='status'>";
 echo "<option value='" . $row['APTM_Status'] . "'>" . $row['APTM_Status'] . "</option>";
 echo "<option value='Completed'>Completed</option>";
 echo "<option value='Cancelled'>Cancelled</option>";
-echo "<option value='Delayed'>Delayed</option>";
 echo "</select>";
 echo "<br>";
 echo "<input type='hidden' name='appointment_id' value='" . $appointment_id . "'>";

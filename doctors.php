@@ -44,4 +44,4 @@ echo "</table>";
 $conn->close();
 ?>
 
-<a href="add_nurse.php" class="addnurse">Add Nurse_ID</a>
+<a href="add_doctor.php" class="adddoctor">Add Doctor</a>

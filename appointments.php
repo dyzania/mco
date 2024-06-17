@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'config.php';
-include 'sb&hd.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['username'])) {
@@ -32,43 +31,140 @@ $stmt = $conn->prepare("SELECT
                             adminstaff u ON a.User_ID = u.User_ID");
 $stmt->execute();
 $result = $stmt->get_result();
-
-echo "<table>";
-echo "<tr>
-        <th>ID</th>
-        <th>Patient</th>
-        <th>Doctor</th>
-        <th>Nurse</th>
-        <th>Service</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>AppointedBy</th>
-     </tr>";
-
-while($row = $result->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>" . $row['APTM_ID'] . "</td>";
-    echo "<td>" . $row['Patient'] . "</td>";
-    echo "<td>" . $row['Doctor'] . "</td>";
-    echo "<td>" . $row['Nurse'] . "</td>";
-    echo "<td>" . $row['Service'] . "</td>";
-    echo "<td>" . $row['APTM_Date'] . "</td>";
-    echo "<td>" . $row['APTM_Status'] . "</td>";
-    echo "<td>" . $row['AppointedBy'] . "</td>";
-    echo "<td>
-            <a href='edit_appointment.php?id=" . $row['APTM_ID'] . "'>Edit</a> |
-            <a href='delete_appointment.php?id=" . $row['APTM_ID'] . "'>Delete</a>
-          </td>";
-    echo "</tr>";
-}
-echo "</table>";
-
-// Close connection
-$conn->close();
-
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments</title>
+    <style>
+        header{
+            background: url(assets/img.jpg) no-repeat center fixed; 
+            background-size: cover;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .actions a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        .btn-return {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .link-container {
+            margin-top: 20px;
+        }
+        .link-container a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .link-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form action="dashboard.php" method="post">
+        <button type="submit" class="btn btn-return">Return</button>
+    </form>
 
-    <a href="add_appointment.php" class="add appointments">Add Appointments</a>
-    <a href='completed_appointment.php'>Completed</a>
-    <a href='cancelled_appointments.php'>Cancelled</a>
-    <a href='pending_appointments.php'>Pending</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Nurse</th>
+            <th>Service</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Appointed By</th>
+            <th>Actions</th>
+        </tr>
+        <?php while($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td><?php echo $row['APTM_ID']; ?></td>
+                <td><?php echo $row['Patient']; ?></td>
+                <td><?php echo $row['Doctor']; ?></td>
+                <td><?php echo $row['Nurse']; ?></td>
+                <td><?php echo $row['Service']; ?></td>
+                <td><?php echo $row['APTM_Date']; ?></td>
+                <td><?php echo $row['APTM_Status']; ?></td>
+                <td><?php echo $row['AppointedBy']; ?></td>
+                <td class="actions">
+                    <a href='edit_appointment.php?id=<?php echo $row["APTM_ID"]; ?>'>Edit</a>
+                    <a href='delete_appointment.php?id=<?php echo $row["APTM_ID"]; ?>'>Delete</a>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+    </table>
+
+    <div class="link-container">
+        <a href="add_appointment.php" class="btn">Add Appointments</a>
+        <a href='completed_appointment.php'>Completed</a>
+        <a href='cancelled_appointments.php'>Cancelled</a>
+        <a href='pending_appointments.php'>Pending</a>
+    </div>
+    <form action="sb&hd.php" method="post">
+        <button type="submit" style="
+            background-color: #00695c; 
+            border: none;              
+            color: white;              
+            padding: 15px 32px;        
+            text-align: center;        
+            text-decoration: none;    
+            display: inline-block;     
+            font-size: 16px;           
+            margin: 4px 2px;           
+            cursor: pointer;           
+            border-radius: 12px;       
+            position: absolute;        
+            left: 186vh;               
+        ">Return</button>
+    </form>
+    <?php
+    // Close connection
+    $conn->close();
+    ?>
+</body>
+</html>
