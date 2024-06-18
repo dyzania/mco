@@ -40,7 +40,7 @@ $result = $stmt->get_result();
 <head>
     <title>Pending Appointments</title>
     <style>
-        header{
+        html{
             background: url(assets/img.jpg) no-repeat center fixed; 
             background-size: cover;
         }
@@ -53,13 +53,13 @@ $result = $stmt->get_result();
         header {
             background: url(assets/img.jpg) no-repeat center fixed;
             background-size: cover;
-            height: 90px;
+            height: 30px;
             text-align: center;
             color: white;
-            padding: 20px 0;
+            padding: 50px 0;
         }
         .content {
-            padding: 10px;
+            padding: 20px;
         }
         table {
             width: 100%;
@@ -76,13 +76,16 @@ $result = $stmt->get_result();
         th {
             background-color: #f2f2f2;
         }
-        tr:nth-child(even) {
+        tr {
             background-color: #f9f9f9;
         }
         tr:hover {
             background-color: #f1f1f1;
         }
-        .add-appointments, .completed, .cancelled, .pending {
+        .add-appointments {
+            margin-right: 200px;
+        }
+        .content a{
             display: inline-block;
             padding: 10px 20px;
             margin: 20px 10px;
@@ -97,8 +100,11 @@ $result = $stmt->get_result();
     </style>
 </head>
 <body>
+    <form action="dashboard.php" method="post">
+        <?php include 'return.php'; ?>
+    </form>
     <header>
-        <h1>Pending Appointments</h1>
+        <h1 style="color: black">Pending Appointments</h1>
     </header>
     <div class="content">
         <table>

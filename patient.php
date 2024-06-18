@@ -23,27 +23,17 @@ if (!$result) {
 <head>
     <title>Patients</title>
     <style>
+         html{
+            background: url(assets/img.jpg) no-repeat center fixed; 
+            background-size: cover;
+        }
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background: url(assets/img.jpg) no-repeat center fixed;
-            background-size: cover;
-            height: 90px;
-            text-align: center;
-            color: white;
-            padding: 10px 0;
-        }
-        .content {
-            padding: 20px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-top: 20px;
         }
         table, th, td {
             border: 1px solid #ddd;
@@ -55,7 +45,7 @@ if (!$result) {
         th {
             background-color: #f2f2f2;
         }
-        tr:nth-child(even) {
+        tr {
             background-color: #f9f9f9;
         }
         tr:hover {
@@ -77,7 +67,7 @@ if (!$result) {
 </head>
 <body>
     <header>
-        <h1>Patient Records</h1>
+        <h1 style="color: black; text-align: center;", >Patient Records</h1>
     </header>
     <div class="content">
         <table>

@@ -38,10 +38,13 @@ if (!$row) {
         }
         form {
             margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            row-gap: 20px;
         }
         label, select, input {
             display: block;
-            margin: 10px 0;
+            margin: 20px 10px;
         }
         select, input {
             padding: 5px;
@@ -61,14 +64,13 @@ if (!$row) {
     </style>
 </head>
 <body>
-    <h1>Edit Appointment</h1>
+    <h1 style="text-align: center;">Edit Appointment</h1>
     <form action="update_appointment.php" method="post">
         <label for="status">Status:</label>
         <select id="status" name="status">
             <option value="<?= $row['APTM_Status'] ?>"><?= $row['APTM_Status'] ?></option>
             <option value="Completed">Completed</option>
             <option value="Cancelled">Cancelled</option>
-            <option value="Delayed">Delayed</option>
         </select>
         <br>
         <input type="hidden" name="appointment_id" value="<?= $appointment_id ?>">

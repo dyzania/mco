@@ -23,7 +23,7 @@ if (!$result) {
 <head>
     <title>Doctors</title>
     <style>
-        header{
+        html{
             background: url(assets/img.jpg) no-repeat center fixed; 
             background-size: cover;
         }
@@ -45,7 +45,7 @@ if (!$result) {
         th {
             background-color: #f2f2f2;
         }
-        tr:nth-child(even) {
+        tr {
             background-color: #f9f9f9;
         }
         tr:hover {
@@ -66,7 +66,7 @@ if (!$result) {
     </style>
 </head>
 <body>
-    <h1>Doctors</h1>
+    <h1 style="text-align: center;">Doctors</h1>
     <table>
         <tr>
             <th>ID</th>

@@ -37,7 +37,7 @@ $result = $stmt->get_result();
 <head>
     <title>Appointments</title>
     <style>
-        header{
+        html{
             background: url(assets/img.jpg) no-repeat center fixed; 
             background-size: cover;
         }
@@ -60,7 +60,7 @@ $result = $stmt->get_result();
         th {
             background-color: #f2f2f2;
         }
-        tr:nth-child(even) {
+        tr {
             background-color: #f9f9f9;
         }
         tr:hover {
@@ -78,9 +78,13 @@ $result = $stmt->get_result();
             margin-top: 20px;
         }
         .link-container a {
-            margin-right: 15px;
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 10px;
+            background-color: #4CAF50;
+            color: white;
             text-decoration: none;
-            color: #007BFF;
+            border-radius: 5px;
         }
         .link-container a:hover {
             text-decoration: underline;
@@ -88,7 +92,7 @@ $result = $stmt->get_result();
     </style>
 </head>
 <body>
-    
+    <h1 style="color: black; text-align: center;", >Appointments Records</h1>
     <table>
         <tr>
             <th>ID</th>

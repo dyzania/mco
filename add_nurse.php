@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact = $_POST['cnum'];
     $email = $_POST['email'];
     $specs = $_POST['specialization'];
-
+    
     $stmt = $conn->prepare("INSERT INTO nurses (N_FName, N_LName, N_LicNumber, N_CNum, N_Email, Spec_ID) 
                              VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssi", $firstname, $lastname, $license, $contact, $email, $specs);

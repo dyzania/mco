@@ -33,7 +33,7 @@ $stmt = $conn->prepare("SELECT
                         WHERE APTM_Status = 'Pending'
                         ORDER BY 
                             a.APTM_Date ASC 
-                        LIMIT 5 ");
+                        LIMIT 8 ");
 $stmt->execute();
 $result = $stmt->get_result();
 ?>

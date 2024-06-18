@@ -24,6 +24,10 @@ if (!$result) {
 <head>
     <title>Nurses</title>
     <style>
+        html{
+            background: url(assets/img.jpg) no-repeat center fixed; 
+            background-size: cover;
+        }
         body {
             font-family: Arial, sans-serif;
         }
@@ -42,7 +46,7 @@ if (!$result) {
         th {
             background-color: #f2f2f2;
         }
-        tr:nth-child(even) {
+        tr {
             background-color: #f9f9f9;
         }
         tr:hover {
@@ -63,7 +67,7 @@ if (!$result) {
     </style>
 </head>
 <body>
-    <h1>Nurses</h1>
+    <h1 style="text-align: center;">Nurses</h1>
     <table>
         <tr>
             <th>ID</th>
